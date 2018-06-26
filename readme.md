@@ -2,6 +2,9 @@
 
 ## Input
 
+[![NPM Version](https://img.shields.io/npm/v/uc-input.svg?style=flat-square)](https://www.npmjs.com/package/uc-input)
+[![NPM Downloads](https://img.shields.io/npm/dt/uc-input.svg?style=flat-square)](https://www.npmjs.com/package/uc-input)
+
 Base mixin for all input classes
 
 ### Usage
