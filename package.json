@@ -1,0 +1,31 @@
+{
+  "name": "uc-input",
+  "version": "1.0.0",
+  "description": "Base mixin for all input classes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unchainedui/input.git"
+  },
+  "keywords": [
+    "unchained",
+    "ui",
+    "browser",
+    "input",
+    "kiss"
+  ],
+  "author": "Alexey Novikov <v@2dubs.com> (http://2dubs.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unchainedui/input/issues"
+  },
+  "homepage": "https://github.com/unchainedui/input#readme",
+  "dependencies": {
+    "uc-dom": "^1.2.0",
+    "uc-flow": "^1.0.0",
+    "uc-strings": "^1.0.0"
+  }
+}
