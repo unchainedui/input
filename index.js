@@ -46,7 +46,6 @@ export default {
       this.onKeyUp();
     })
     this.events.paste = on(this.input, 'paste', e => this.onPaste(e));
-    this.blur();
     this.events.keydown = on(this.input, 'keydown', e => {
       isMeta = e.altKey || e.ctrlKey || e.metaKey
     });
@@ -58,6 +57,7 @@ export default {
     });
 
     opts.placeholder && this.setPlaceholder(opts.placeholder);
+    this.toggleClass('input-value', this.getValue() !== '');
   },
 
   onKeyUp: function() {
