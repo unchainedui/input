@@ -80,7 +80,7 @@ export default {
   },
 
   onPaste: function(e) {
-    const str = e.originalEvent.clipboardData.getData('text/plain');
+    const str = e.clipboardData.getData('text/plain');
     const pos = this.getCarret();
     document.execCommand('insertText', false, str);
     e.preventDefault();
