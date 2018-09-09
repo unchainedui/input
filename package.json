@@ -1,6 +1,6 @@
 {
   "name": "uc-input",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Base mixin for all input classes",
   "main": "index.js",
   "scripts": {
