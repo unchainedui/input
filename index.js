@@ -31,13 +31,12 @@ export default {
     // interface, implement this in your class
   },
 
-  setup: function(opts) {
+  addInput: function(opts) {
     this.debouncedUpdate = debounce(this.update, opts.debounce || 500);
 
     let isMeta = false;
     this._value = this.getValue();
     this.limit = opts.limit;
-    this.events = {};
     this.events.click = on(this.el, 'click', e => e.stopPropagation());
     this.events.focus = on(this.input, 'focus', () => this.removeClass('input-message'));
     this.events.blur = on(this.input, 'blur', () => {
@@ -57,7 +56,7 @@ export default {
     });
 
     opts.placeholder && this.setPlaceholder(opts.placeholder);
-    this.toggleClass('input-value', this.getValue() !== '');
+    this.toggleClass('input-value', this._value !== '');
   },
 
   onKeyUp: function() {
@@ -96,7 +95,7 @@ export default {
 
   update: function(val, silent) {
     this.removeClass('error');
-    !silent && this.didUpdate && this.didUpdate(val);
+    !silent && this.onChange && this.onChange(val);
   },
 
   focus: function() {
@@ -110,7 +109,7 @@ export default {
     return this;
   },
 
-  value: function(val, dontUpdate) {
+  value: function(val, silent) {
     if (val === undefined) {
       return this.getValue();
     }
@@ -120,7 +119,7 @@ export default {
 
     if (val !== value) {
       this.setValue(val);
-      if (dontUpdate) {
+      if (silent) {
         this.toggleClass('input-value', val !== '');
       } else {
         this.update(val);
@@ -137,7 +136,7 @@ export default {
     return off.apply(null, [ this.input ].concat(args));
   },
 
-  destroy: function() {
+  removeInput: function() {
     this.removePlaceholder && this.removePlaceholder();
     this.removeClass('input-msg', 'input-value');
 
